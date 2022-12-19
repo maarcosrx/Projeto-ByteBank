@@ -3,15 +3,30 @@
 namespace ByteBank {
     public class Program {
 
-
         static void Menu() {
             Console.WriteLine("----------- Escolha uma opção abaixo ------------");
-            Console.WriteLine($"Consultar seu saldo ---------------------------(1)"); //Funcionando
-            Console.WriteLine($"Realizar saque --------------------------------(2)"); //Funcionando
-            Console.WriteLine($"Realizar depósito ------------------------------(3)"); //Funcionando
-            Console.WriteLine($"Transferências --------------------------------(4)"); //Funcionando
-            Console.WriteLine($"Encerrar atendimento --------------------------(0)"); //Funcionando
+            Console.WriteLine("1 - Inserir usuário");
+            Console.WriteLine("2 - Deletar um usuário");
+            Console.WriteLine("3 - Listar todas as contas registradas");
+            Console.WriteLine("4 - Detalhes de um usuário");
+            Console.WriteLine("5 - Quantia armazenada no banco");
+            Console.WriteLine("6 - Manipular a conta");
+            Console.WriteLine("0 - Para sair do programa");
+            Console.WriteLine("Digite a opção desejada");
+            Console.WriteLine("-------------------------------------------------");
         }
+
+
+
+        //static void SubMenu() {
+        //    Console.WriteLine("----------- Escolha uma opção abaixo ------------");
+        //    Console.WriteLine($"Consultar seu saldo ---------------------------(1)"); //Funcionando
+        //    Console.WriteLine($"Realizar saque --------------------------------(2)"); //Funcionando
+        //    Console.WriteLine($"Realizar depósito ------------------------------(3)"); //Funcionando
+        //    Console.WriteLine($"Transferências --------------------------------(4)"); //Funcionando
+        //    Console.WriteLine($"Encerrar atendimento --------------------------(0)"); //Funcionando
+        //    Console.WriteLine("-------------------------------------------------");
+        //}
 
         public static void Main(string[] args) {
             double saldo = 0.0;            
@@ -31,7 +46,7 @@ namespace ByteBank {
             do {                
                 Menu();
                 opcao = int.Parse(Console.ReadLine()); 
-                if(opcao > 4) {
+                if(opcao > 6) {
                     Console.WriteLine("Opção inválida.");
                     Console.WriteLine(" ");
                 }
