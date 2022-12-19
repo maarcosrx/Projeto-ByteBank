@@ -2,7 +2,7 @@
 
 
 ```
- ---------------------------- BEM VINDO AO BYTE BANK! ---------------------------
+ ------------------------------------------- BEM VINDO AO BYTE BANK! -------------------------------------
 ```
 
 Projeto desenvolvido durante a primeira etapa do Programa de Formação Sharp Coders promovido pela Imã Learning Place e ministrado pelo professor Hugo Rafael.
