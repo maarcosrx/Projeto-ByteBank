@@ -124,24 +124,31 @@
                             Transferencia(cpfs, saldos, x);
                             break;
                         case 2:
-                            Saque(cpfs, saldos, x);
-                            break;
-                        case 3:
                             Deposito(cpfs, saldos, x);
                             break;
+                        case 3:
+                            Saque(cpfs, saldos, x);
+                            break;
+                        case 4:
+                            Console.WriteLine("Saindo da sua conta.....");
+                            Console.WriteLine("Logout realizado com sucesso! Aperte qualquer tecla....");
+                            Console.ReadKey();
+                            break;
                     }
-
+                    Console.Clear();
 
                 } while (opcao != 4);
             }
 
-            static void MenuConta(List<string> cpfs, List<double> saldos, int u ) {
+            static void MenuConta(List<string> cpfs, List<double> saldos, int x ) {
                 Console.WriteLine("-------------------------------");
+                Console.WriteLine();
                 Console.WriteLine("Escolha uma das opções abaixo: ");
                 Console.WriteLine("Transferência ------------- (1)");
                 Console.WriteLine("Deposito ------------------ (2)");
                 Console.WriteLine("Saque --------------------- (3)");
-                Console.WriteLine("Retornar a tela inicial --- (4)");
+                Console.WriteLine("Realizar Logout ----------- (4)");
+                Console.WriteLine($"Saldo R${saldos[x]}");
             }
             
             static void Transferencia(List<string> cpfs, List<double> saldos, int x) {
@@ -157,18 +164,27 @@
                 saldos[x] -= valorTransferencia;
                 saldos[z] += valorTransferencia;
                 Console.WriteLine("Transferência concluída");
+                Console.WriteLine($"Saldo atual R$:{saldos[x]}");
+                Console.WriteLine("Aperte qualquer tecla para voltar...");
+                Console.ReadKey();                
             }
 
             static void Saque(List<string> cpfs, List<double> saldos, int x) {
                 Console.Write("Qual valor do saque?\nR$ ");
                 double saque = double.Parse(Console.ReadLine());
                 saldos[x] -= saque;
+                Console.WriteLine($"Saque efetuado com sucesso\n"+"Saldo atual R$:{saldos[x]}");
+                Console.WriteLine("Aperte qualquer tecla para voltar...");
+                Console.ReadKey();
             }
 
             static void Deposito(List<string> cpfs, List<double> saldos, int x) {
                 Console.Write("O quanto deseja depositar?\nR$ ");
                 double deposito = double.Parse(Console.ReadLine());
                 saldos[x] += deposito;
+                Console.WriteLine($"Depósito efetuado com sucesso\n"+"Saldo atual R$:{saldos[x]}");
+                Console.WriteLine("Aperte qualquer tecla para voltar...");
+                Console.ReadKey();
             }
         }
     }
