@@ -24,7 +24,7 @@
 
             do {
                 Menu();
-                opcao = int.Parse(Console.ReadLine());
+                opcao = int.Parse(Console.ReadLine());           
 
                 switch (opcao) {
                     case 0:
@@ -38,10 +38,9 @@
                     case 2:
                         DeletarUsuario(cpfs, titulares, senhas, saldos);
                         break;
-
                     case 3:
                         ListarContas(cpfs, titulares, saldos);
-                        break;
+                        break;                        
                     case 4:
                         SaldoAcumulado(saldos);
                         break;
@@ -81,17 +80,17 @@
             senhas.RemoveAt(indexParaDeletar);
             saldos.RemoveAt(indexParaDeletar);
 
-            Console.WriteLine("Conta deletada com sucesso.");
+            Console.WriteLine("Conta deletada com sucesso.");            
         }
 
         static void ListarContas(List<string> cpfs, List<string> titulares, List<double> saldos) {
             for(int i = 0; i < cpfs.Count; i++) {
-                Console.WriteLine($"CPF: {cpfs[i]} | Titulares:{titulares[i]} | Saldo: R${saldos[i]:F2}");
-            }
+                Console.WriteLine($"CPF: {cpfs[i]} | Titulares: {titulares[i]} | Saldo: R$ {saldos[i]:F2}");
+            }            
         }
 
         static void SaldoAcumulado(List<double> saldos) {
-            Console.WriteLine($"O saldo total armazenado no banco é de R${saldos.Sum()}");
+            Console.WriteLine($"O saldo total armazenado no banco é de R${saldos.Sum()}");            
         }
 
         static void Login(List<string> cpfs, List<string> titulares,List<string> senha, List<double> saldos) {
@@ -148,6 +147,8 @@
                 Console.WriteLine("Deposito ------------------ (2)");
                 Console.WriteLine("Saque --------------------- (3)");
                 Console.WriteLine("Realizar Logout ----------- (4)");
+                Console.WriteLine();
+                Console.WriteLine("-------------------------------");
                 Console.WriteLine($"Saldo R${saldos[x]}");
             }
             
@@ -164,7 +165,7 @@
                 saldos[x] -= valorTransferencia;
                 saldos[z] += valorTransferencia;
                 Console.WriteLine("Transferência concluída");
-                Console.WriteLine($"Saldo atual R$:{saldos[x]}");
+                Console.WriteLine($"Saldo atual R$ {saldos[x]}");
                 Console.WriteLine("Aperte qualquer tecla para voltar...");
                 Console.ReadKey();                
             }
@@ -173,7 +174,7 @@
                 Console.Write("Qual valor do saque?\nR$ ");
                 double saque = double.Parse(Console.ReadLine());
                 saldos[x] -= saque;
-                Console.WriteLine($"Saque efetuado com sucesso\n"+"Saldo atual R$:{saldos[x]}");
+                Console.WriteLine($"Saque efetuado com sucesso\n"+$"Saldo atual R$ {saldos[x]}");
                 Console.WriteLine("Aperte qualquer tecla para voltar...");
                 Console.ReadKey();
             }
@@ -182,7 +183,7 @@
                 Console.Write("O quanto deseja depositar?\nR$ ");
                 double deposito = double.Parse(Console.ReadLine());
                 saldos[x] += deposito;
-                Console.WriteLine($"Depósito efetuado com sucesso\n"+"Saldo atual R$:{saldos[x]}");
+                Console.WriteLine($"Depósito efetuado com sucesso\n"+$"Saldo atual R$ {saldos[x]}");
                 Console.WriteLine("Aperte qualquer tecla para voltar...");
                 Console.ReadKey();
             }
